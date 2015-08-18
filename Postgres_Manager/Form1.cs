@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+
 
 namespace Postgres_Manager
 {
@@ -26,13 +28,13 @@ namespace Postgres_Manager
             InitializeComponent();
            
             imgList.Images.Add("Hserver",
-               Image.FromFile("C:\\Users\\Carlos Varela\\Documents\\Visual Studio 2013\\Projects\\Postgres_Manager\\HomeServer.png"));
+               Properties.Resources.HomeServer);
             imgList.Images.Add("server",
-               Image.FromFile("C:\\Users\\Carlos Varela\\Documents\\Visual Studio 2013\\Projects\\Postgres_Manager\\server.png"));
-            imgList.Images.Add("server",
-              Image.FromFile("C:\\Users\\Carlos Varela\\Documents\\Visual Studio 2013\\Projects\\Postgres_Manager\\folder.png"));
-            imgList.Images.Add("server",
-             Image.FromFile("C:\\Users\\Carlos Varela\\Documents\\Visual Studio 2013\\Projects\\Postgres_Manager\\Login.png"));
+              Properties.Resources.server1);
+            imgList.Images.Add("folder",
+              Properties.Resources.folder);
+            imgList.Images.Add("login",
+             Properties.Resources.Login);
             treeView1.ImageList = imgList;
             treeView1.Nodes.Add("Servers:");
             treeView1.Nodes[0].ImageIndex = 0;
