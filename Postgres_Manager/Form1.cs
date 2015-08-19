@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Versioning;
@@ -27,6 +28,14 @@ namespace Postgres_Manager
         {
             InitializeComponent();
            
+          firstLoad();
+            richTextBox1.Enabled = false;
+        }
+
+
+
+        private void firstLoad()
+        {
             imgList.Images.Add("Hserver",
                Properties.Resources.HomeServer);
             imgList.Images.Add("server",
@@ -41,12 +50,7 @@ namespace Postgres_Manager
             treeView1.Nodes[0].SelectedImageIndex = 0;
             dataGridView1.Visible = false;
             load_Servers(defaulthost, defaultport, "postgres", "cgvm02", "postgres");
-            richTextBox1.Enabled = false;
         }
-
-
-
-       
 
         
         private void Form1_Load(object sender, EventArgs e)
@@ -262,6 +266,7 @@ namespace Postgres_Manager
         }
         private void show_components(string server, string port, string user, string password, string database)
         {
+
                conn = pc.connect_db(server, port, user, password, database);
                 if (conn != null)
                 {
@@ -271,7 +276,6 @@ namespace Postgres_Manager
                     Tablespaces_Show(conn);
                     conn.Open();
                     Users_Show(conn);
-
 
                 }
                 else
@@ -297,6 +301,7 @@ namespace Postgres_Manager
                 dataGridView1.ReadOnly = true;
                 dataGridView1.BackgroundColor = Color.White;
                 dataGridView1.DataSource = dt;
+                richTextBox1.Clear();
             }
             catch (Exception ex)
             {
@@ -325,6 +330,7 @@ namespace Postgres_Manager
                     dataGridView1.ReadOnly = true;
                     dataGridView1.BackgroundColor = Color.White;
                     dataGridView1.DataSource = dt;
+                    richTextBox1.Clear();
                 }
                 catch (Exception ex)
                 {
@@ -343,12 +349,41 @@ namespace Postgres_Manager
         {
             CreateTable ct = new CreateTable(conn);
             ct.ShowDialog();
-        }
+           NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
+            treeView1.Nodes.Clear();
+            firstLoad();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName, System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
+            Triggers_show(conn);
+            Tables_show(conn);
+            }
 
         private void createTriggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Trigger_Create tc = new Trigger_Create(conn, richTextBox1);
             tc.ShowDialog();
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
+            treeView1.Nodes.Clear();
+            firstLoad();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName, System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
+            Triggers_show(conn);
+            Tables_show(conn);
+        }
+
+        private void createFunctionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Functions fn = new Functions(richTextBox1);
+            fn.ShowDialog();
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
+            treeView1.Nodes.Clear();
+            firstLoad();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName, System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
+            Triggers_show(conn);
+            Tables_show(conn);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

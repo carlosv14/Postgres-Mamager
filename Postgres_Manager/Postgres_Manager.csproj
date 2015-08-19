@@ -65,6 +65,10 @@
     <Compile Include="Functions.Designer.cs">
       <DependentUpon>Functions.cs</DependentUpon>
     </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs" />
     <Compile Include="Postgres_Connection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

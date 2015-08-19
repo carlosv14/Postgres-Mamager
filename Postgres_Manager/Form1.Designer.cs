@@ -32,12 +32,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createTriggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createFunctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.createTriggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createFunctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(708, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -74,9 +75,23 @@
             // createTableToolStripMenuItem
             // 
             this.createTableToolStripMenuItem.Name = "createTableToolStripMenuItem";
-            this.createTableToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createTableToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.createTableToolStripMenuItem.Text = "Create Table";
             this.createTableToolStripMenuItem.Click += new System.EventHandler(this.createTableToolStripMenuItem_Click);
+            // 
+            // createTriggerToolStripMenuItem
+            // 
+            this.createTriggerToolStripMenuItem.Name = "createTriggerToolStripMenuItem";
+            this.createTriggerToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.createTriggerToolStripMenuItem.Text = "Create Trigger";
+            this.createTriggerToolStripMenuItem.Click += new System.EventHandler(this.createTriggerToolStripMenuItem_Click);
+            // 
+            // createFunctionToolStripMenuItem
+            // 
+            this.createFunctionToolStripMenuItem.Name = "createFunctionToolStripMenuItem";
+            this.createFunctionToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.createFunctionToolStripMenuItem.Text = "Create Function";
+            this.createFunctionToolStripMenuItem.Click += new System.EventHandler(this.createFunctionToolStripMenuItem_Click);
             // 
             // richTextBox1
             // 
@@ -113,19 +128,6 @@
             this.richTextBox2.Size = new System.Drawing.Size(661, 90);
             this.richTextBox2.TabIndex = 4;
             this.richTextBox2.Text = "";
-            // 
-            // createTriggerToolStripMenuItem
-            // 
-            this.createTriggerToolStripMenuItem.Name = "createTriggerToolStripMenuItem";
-            this.createTriggerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.createTriggerToolStripMenuItem.Text = "Create Trigger";
-            this.createTriggerToolStripMenuItem.Click += new System.EventHandler(this.createTriggerToolStripMenuItem_Click);
-            // 
-            // createFunctionToolStripMenuItem
-            // 
-            this.createFunctionToolStripMenuItem.Name = "createFunctionToolStripMenuItem";
-            this.createFunctionToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.createFunctionToolStripMenuItem.Text = "Create Function";
             // 
             // Form1
             // 

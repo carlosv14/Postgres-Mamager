@@ -103,7 +103,47 @@ namespace Postgres_Manager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            List<string> pks = new List<string>();
+            if (tabControl1.SelectedIndex == 1 && dataGridView1.Rows[0].Cells[1].Value != null)
+            {
+                richTextBox1.Clear();
+                richTextBox1.Text += "CREATE TABLE " + textBox1.Text + "( \n";
+
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+                {
+                    richTextBox1.Text += dataGridView1.Rows[i].Cells[1].Value.ToString();
+                    richTextBox1.Text += " " + dataGridView1.Rows[i].Cells[2].Value.ToString();
+                    richTextBox1.Text += "(";
+                    richTextBox1.Text += dataGridView1.Rows[i].Cells[3].Value.ToString();
+                    richTextBox1.Text += ")";
+                    if (dataGridView1.Rows[i].Cells["NN"].Value != null && (Boolean)dataGridView1.Rows[i].Cells["NN"].Value)
+                        richTextBox1.Text += " NOT NULL, \n";
+                    else
+                        richTextBox1.Text += ",\n";
+                    if (dataGridView1.Rows[i].Cells["PK"].Value != null && (Boolean)dataGridView1.Rows[i].Cells["PK"].Value)
+                    {
+                        pks.Add(dataGridView1.Rows[i].Cells[1].Value.ToString());
+
+                    }
+                }
+                richTextBox1.Text += " PRIMARY KEY(";
+                for (int i = 0; i < pks.Count; i++)
+                {
+
+                    richTextBox1.Text += pks.ElementAt(i);
+                    if (i < pks.Count - 1)
+                        richTextBox1.Text += ", ";
+
+                }
+                richTextBox1.Text += ") \n";
+                richTextBox1.Text += ") \n";
+
+                richTextBox1.Text += " WITH (OIDS = FALSE);";
+
+
+            }
             pc.exec_Sql(richTextBox1.Text, conn);
+            this.Close();
         }
     }
 }

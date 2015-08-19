@@ -13,19 +13,17 @@ namespace Postgres_Manager
 {
     public partial class Functions : Form
     {
-        NpgsqlConnection conn = null;
-        Postgres_Connection pc = null;
-        public Functions(NpgsqlConnection conn)
+     
+       
+        private string DDL = null;
+        private RichTextBox RT;
+        public Functions( RichTextBox RT)
         {
             InitializeComponent();
-            DataGridViewColumn nombre = new DataGridViewColumn();
-            nombre.HeaderText="Nombre";
-            nombre.Name = "NOMBRE";
-            DataGridViewColumn type = new DataGridViewColumn();
-            type.HeaderText = "DATA TYPE";
-            type.Name = "type";
-            dataGridView1.Columns.Add(nombre);
-            dataGridView1.Columns.Add(type);
+            this.RT = RT;
+        
+            dataGridView1.Columns.Add("Nombre","Nombre");
+            dataGridView1.Columns.Add("Tipo","Tipo");
         }
 
         private void Functions_Load(object sender, EventArgs e)
@@ -35,7 +33,27 @@ namespace Postgres_Manager
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            DDL += "CREATE OR REPLACE FUNCTION ";
+            DDL += textBox1.Text;
+            DDL += "( ";
+            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            {
+                DDL += dataGridView1.Rows[i].Cells["Nombre"].Value.ToString();
+                DDL += " ";
+                DDL += dataGridView1.Rows[i].Cells["Tipo"].Value.ToString();
+                if(i< dataGridView1.Rows.Count-2)
+                    DDL += ", ";
+            }
+            DDL += " )";
+            DDL += " RETURNS ";
+            DDL += comboBox1.GetItemText(comboBox1.SelectedItem);
+            DDL += " AS $$ \n";
+            DDL += "BEGIN\n";
+            DDL += "END\n";
+            DDL += "$$ LANGUAGE plpgsql;";
+            RT.Text = DDL;
+            RT.Enabled = true;
+            this.Close();
         }
     }
 }
