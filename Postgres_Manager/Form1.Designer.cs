@@ -34,10 +34,12 @@
             this.createTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createTriggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createFunctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sequenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.createViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +51,7 @@
             this.treeView1.Size = new System.Drawing.Size(202, 400);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
             // menuStrip1
             // 
@@ -66,7 +69,9 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createTableToolStripMenuItem,
             this.createTriggerToolStripMenuItem,
-            this.createFunctionToolStripMenuItem});
+            this.createFunctionToolStripMenuItem,
+            this.sequenceToolStripMenuItem,
+            this.createViewToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -75,23 +80,30 @@
             // createTableToolStripMenuItem
             // 
             this.createTableToolStripMenuItem.Name = "createTableToolStripMenuItem";
-            this.createTableToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.createTableToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.createTableToolStripMenuItem.Text = "Create Table";
             this.createTableToolStripMenuItem.Click += new System.EventHandler(this.createTableToolStripMenuItem_Click);
             // 
             // createTriggerToolStripMenuItem
             // 
             this.createTriggerToolStripMenuItem.Name = "createTriggerToolStripMenuItem";
-            this.createTriggerToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.createTriggerToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.createTriggerToolStripMenuItem.Text = "Create Trigger";
             this.createTriggerToolStripMenuItem.Click += new System.EventHandler(this.createTriggerToolStripMenuItem_Click);
             // 
             // createFunctionToolStripMenuItem
             // 
             this.createFunctionToolStripMenuItem.Name = "createFunctionToolStripMenuItem";
-            this.createFunctionToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.createFunctionToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.createFunctionToolStripMenuItem.Text = "Create Function";
             this.createFunctionToolStripMenuItem.Click += new System.EventHandler(this.createFunctionToolStripMenuItem_Click);
+            // 
+            // sequenceToolStripMenuItem
+            // 
+            this.sequenceToolStripMenuItem.Name = "sequenceToolStripMenuItem";
+            this.sequenceToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.sequenceToolStripMenuItem.Text = "Create Sequence";
+            this.sequenceToolStripMenuItem.Click += new System.EventHandler(this.sequenceToolStripMenuItem_Click);
             // 
             // richTextBox1
             // 
@@ -104,11 +116,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(243, 433);
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.Location = new System.Drawing.Point(229, 429);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(28, 23);
+            this.button1.Size = new System.Drawing.Size(31, 27);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -128,6 +140,13 @@
             this.richTextBox2.Size = new System.Drawing.Size(661, 90);
             this.richTextBox2.TabIndex = 4;
             this.richTextBox2.Text = "";
+            // 
+            // createViewToolStripMenuItem
+            // 
+            this.createViewToolStripMenuItem.Name = "createViewToolStripMenuItem";
+            this.createViewToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.createViewToolStripMenuItem.Text = "Create View";
+            this.createViewToolStripMenuItem.Click += new System.EventHandler(this.createViewToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -164,7 +183,8 @@
         private System.Windows.Forms.ToolStripMenuItem createTableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createTriggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createFunctionToolStripMenuItem;
-
+        private System.Windows.Forms.ToolStripMenuItem sequenceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createViewToolStripMenuItem;
     }
 }
 
