@@ -16,10 +16,12 @@ namespace Postgres_Manager
         private string DDL;
         private NpgsqlConnection conn;
         private Postgres_Connection PC;
-        public Sequence(NpgsqlConnection conn)
+        private RichTextBox t;
+        public Sequence(NpgsqlConnection conn,RichTextBox t)
         {
             InitializeComponent();
             this.conn = conn;
+            this.t = t;
             comboBox1.Items.Add("CACHE");
             comboBox1.Items.Add("NO CACHE");
             PC = new Postgres_Connection();
@@ -43,7 +45,7 @@ namespace Postgres_Manager
             DDL += " MAXVALUE ";
             DDL += textBox4.Text;
            // if (comboBox1.GetItemText(comboBox1.SelectedItem) == "CACHE")
-            PC.exec_Sql(DDL, conn);
+            PC.exec_Sql(DDL, conn,t);
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)

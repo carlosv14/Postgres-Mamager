@@ -45,6 +45,16 @@ namespace Postgres_Manager
               Properties.Resources.folder);
             imgList.Images.Add("login",
              Properties.Resources.Login);
+            imgList.Images.Add("Table",
+           Properties.Resources.table);
+            imgList.Images.Add("Fx",
+          Properties.Resources.fx);
+            imgList.Images.Add("sp",
+         Properties.Resources.sp);
+            imgList.Images.Add("tgr",
+      Properties.Resources.tgr);
+            imgList.Images.Add("view",
+     Properties.Resources.view);
             treeView1.ImageList = imgList;
             treeView1.Nodes.Add("Servers:");
             treeView1.Nodes[0].ImageIndex = 0;
@@ -85,6 +95,7 @@ namespace Postgres_Manager
                     Tables_show(conn);
                     view_show(conn);
                     Functions_show(conn);
+                    seq_show(conn);
                 }
             }
         }
@@ -97,15 +108,24 @@ namespace Postgres_Manager
                 DataTable columns = null;
 
 
-                dt = pc.exec_Sql("select * from pg_proc where pronamespace = 2200", conn);
+                dt = pc.exec_Sql("select * from pg_proc where pronamespace = 2200", conn, this.richTextBox2);
 
+
+                
                 this.conn = conn;
                 int index =
                     treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes.Find(conn.Database, true).First().Index;
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[0].ImageIndex = 6;
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[0].SelectedImageIndex = 6;
                 if (treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[0].GetNodeCount(false) == 0)
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
+                    {
                         treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[0].Nodes.Add(dt.Rows[i][0].ToString());
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[0].Nodes[i].ImageIndex = 6;
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[0].Nodes[i].SelectedImageIndex = 6;
+                    }
+
 
 
                 }
@@ -115,7 +135,16 @@ namespace Postgres_Manager
             catch (Exception msg)
             {
 
-                MessageBox.Show(msg.ToString());
+
+                int length = richTextBox2.TextLength;
+
+                richTextBox2.AppendText(DateTime.Now + " " + msg.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength = msg.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
 
             }
         }
@@ -128,7 +157,7 @@ namespace Postgres_Manager
                 treeView1.Nodes[0].Nodes[0].Nodes.Add("Databases:", "Databases:");
                 treeView1.Nodes[0].Nodes[0].Nodes[0].ImageIndex = 1;
                 treeView1.Nodes[0].Nodes[0].Nodes[0].SelectedImageIndex = 1;
-                DataTable dt = pc.exec_Sql("select * from pg_database", conn);
+                DataTable dt = pc.exec_Sql("select * from pg_database", conn,this.richTextBox2);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes.Add(dt.Rows[i][0].ToString(), dt.Rows[i][0].ToString());
@@ -146,8 +175,16 @@ namespace Postgres_Manager
             catch (Exception msg)
             {
 
-                MessageBox.Show(msg.ToString());
 
+                int length = richTextBox2.TextLength;
+
+                richTextBox2.AppendText(DateTime.Now + " " + msg.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength = msg.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
             }
 
 
@@ -165,7 +202,17 @@ namespace Postgres_Manager
             }
             catch (Exception msg)
             {
-                MessageBox.Show(msg.ToString());
+
+                int length = richTextBox2.TextLength;
+
+                richTextBox2.AppendText(DateTime.Now + " " + msg.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength = msg.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
+
 
             }
         }
@@ -177,18 +224,24 @@ namespace Postgres_Manager
                 DataTable columns = null;
                 if (conn.Database != "postgres")
                 {
-                     dt = pc.exec_Sql("select tablename from pg_tables where schemaname != 'pg_catalog' and schemaname != 'information_schema' ", conn);
+                     dt = pc.exec_Sql("select tablename from pg_tables where schemaname != 'pg_catalog' and schemaname != 'information_schema' ", conn, this.richTextBox2);
                     
                 }
                 else
                 {
-                    dt = pc.exec_Sql("select tablename from pg_tables", conn);
+                    dt = pc.exec_Sql("select tablename from pg_tables", conn, this.richTextBox2);
                 }
                 this.conn = conn;
                 int index =
                     treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes.Find(conn.Database, true).First().Index;
+
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].ImageIndex = 4;
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].SelectedImageIndex = 4;
+                
+                 
+               
                 if (treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].GetNodeCount(false) == 0)
-                {
+                    {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes.Add(dt.Rows[i][0].ToString(),
@@ -196,13 +249,15 @@ namespace Postgres_Manager
                        
                             columns =
                                 pc.exec_Sql(
-                                    "SELECT column_name, data_type FROM information_schema.columns WHERE table_name=" + "'" + dt.Rows[i][0].ToString() + "'", conn);
+                                    "SELECT column_name, data_type FROM information_schema.columns WHERE table_name=" + "'" + dt.Rows[i][0].ToString() + "'", conn, this.richTextBox2);
 
                         for (int j = 0; j < columns.Rows.Count; j++)
                         {
                             treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes.Add(columns.Rows[j][0].ToString(),
                             columns.Rows[j][0].ToString());
                         }
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].ImageIndex = 4;
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].SelectedImageIndex = 4;
                         columns.Clear();
                     }
                     
@@ -214,8 +269,16 @@ namespace Postgres_Manager
             catch (Exception msg)
             {
 
-                MessageBox.Show(msg.ToString());
 
+                int length = richTextBox2.TextLength;
+
+                richTextBox2.AppendText(DateTime.Now + " " + msg.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength = msg.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
             }
 
         }
@@ -227,17 +290,23 @@ namespace Postgres_Manager
                 DataTable columns = null;
 
 
-                dt = pc.exec_Sql("select tgname from pg_trigger", conn);
+                dt = pc.exec_Sql("select tgname from pg_trigger", conn, this.richTextBox2);
                 
                 this.conn = conn;
                 int index =
                     treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes.Find(conn.Database, true).First().Index;
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[3].ImageIndex = 7;
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[3].SelectedImageIndex = 7;
+
                 if (treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[3].GetNodeCount(false) == 0)
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
+                    {
                         treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[3].Nodes.Add(dt.Rows[i][0].ToString());
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[3].Nodes[i].ImageIndex = 7;
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[3].Nodes[i].SelectedImageIndex = 7;
 
-
+                    }
                 }
 
                 treeView1.Enabled = true;
@@ -245,8 +314,16 @@ namespace Postgres_Manager
             catch (Exception msg)
             {
 
-                MessageBox.Show(msg.ToString());
+                int length = richTextBox2.TextLength;
 
+                richTextBox2.AppendText(DateTime.Now + " " + msg.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength = msg.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
+              
             }
 
            
@@ -260,15 +337,67 @@ namespace Postgres_Manager
                 DataTable columns = null;
 
 
-                dt = pc.exec_Sql("select table_name from INFORMATION_SCHEMA.views WHERE table_schema = ANY (current_schemas(false))", conn);
+                dt = pc.exec_Sql("select table_name from INFORMATION_SCHEMA.views WHERE table_schema = ANY (current_schemas(false))", conn, this.richTextBox2);
 
                 this.conn = conn;
                 int index =
                     treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes.Find(conn.Database, true).First().Index;
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[4].ImageIndex = 8;
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[4].SelectedImageIndex = 8;
                 if (treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[4].GetNodeCount(false) == 0)
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
+                    {
                         treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[4].Nodes.Add(dt.Rows[i][0].ToString());
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[4].Nodes[i].ImageIndex = 8;
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[4].Nodes[i].SelectedImageIndex = 8;
+
+                    }
+
+                }
+
+                treeView1.Enabled = true;
+            }
+            catch (Exception msg)
+            {
+
+
+                int length = richTextBox2.TextLength;
+
+                richTextBox2.AppendText(DateTime.Now + " " + msg.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength = msg.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
+
+            }
+        }
+        void seq_show(NpgsqlConnection conn)
+        {
+            try
+            {
+                DataTable dt = null;
+                DataTable columns = null;
+
+
+                dt = pc.exec_Sql("SELECT c.relname FROM pg_class c WHERE c.relkind = 'S';", conn,this.richTextBox2);
+
+                this.conn = conn;
+                int index =
+                    treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes.Find(conn.Database, true).First().Index;
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[1].ImageIndex = 5;
+                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[1].SelectedImageIndex = 5;
+
+                if (treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[1].GetNodeCount(false) == 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[1].Nodes.Add(dt.Rows[i][0].ToString());
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[1].Nodes[i].ImageIndex = 5;
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[1].Nodes[i].SelectedImageIndex = 5;
+                    }
 
 
                 }
@@ -278,7 +407,16 @@ namespace Postgres_Manager
             catch (Exception msg)
             {
 
-                MessageBox.Show(msg.ToString());
+
+                int length = richTextBox2.TextLength;
+
+                richTextBox2.AppendText(DateTime.Now + " " + msg.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength = msg.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
 
             }
         }
@@ -290,7 +428,7 @@ namespace Postgres_Manager
                 treeView1.Nodes[0].Nodes[0].Nodes.Add("Tablespaces:", "Tablespaces:");
                 treeView1.Nodes[0].Nodes[0].Nodes[1].ImageIndex = 2;
                 treeView1.Nodes[0].Nodes[0].Nodes[1].SelectedImageIndex = 2;
-                DataTable dt = pc.exec_Sql("select * from pg_tablespace", conn);
+                DataTable dt = pc.exec_Sql("select * from pg_tablespace", conn, this.richTextBox2);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     treeView1.Nodes[0].Nodes[0].Nodes[1].Nodes.Add(dt.Rows[i][0].ToString(), dt.Rows[i][0].ToString());
@@ -302,7 +440,16 @@ namespace Postgres_Manager
             catch (Exception msg)
             {
 
-                MessageBox.Show(msg.ToString());
+
+                int length = richTextBox2.TextLength;
+
+                richTextBox2.AppendText(DateTime.Now + " " + msg.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength = msg.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
 
             }
 
@@ -316,7 +463,7 @@ namespace Postgres_Manager
                 treeView1.Nodes[0].Nodes[0].Nodes.Add("Login Roles:", "Login Roles:");
                 treeView1.Nodes[0].Nodes[0].Nodes[2].ImageIndex = 3;
                 treeView1.Nodes[0].Nodes[0].Nodes[2].SelectedImageIndex = 3;
-                DataTable dt = pc.exec_Sql("select * from pg_user", conn);
+                DataTable dt = pc.exec_Sql("select * from pg_user", conn, this.richTextBox2);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     treeView1.Nodes[0].Nodes[0].Nodes[2].Nodes.Add(dt.Rows[i][0].ToString(), dt.Rows[i][0].ToString());
@@ -328,7 +475,15 @@ namespace Postgres_Manager
             catch (Exception msg)   
             {
 
-                MessageBox.Show(msg.ToString());
+                int length = richTextBox2.TextLength;
+
+                richTextBox2.AppendText(DateTime.Now + " " + msg.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength = msg.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
 
             }
 
@@ -365,17 +520,28 @@ namespace Postgres_Manager
                 else
                     value = richTextBox1.Text;
 
-                DataTable dt = pc.exec_Sql(value, conn);
+                DataTable dt = pc.exec_Sql(value, conn, this.richTextBox2);
                 dataGridView1.Visible = true;
                 dataGridView1.ReadOnly = true;
                 dataGridView1.BackgroundColor = Color.White;
                 dataGridView1.DataSource = dt;
-                
+                this.tabControl1.SelectedIndex = 1;
+
             }
             catch (Exception ex)
             {
 
-                richTextBox2.Text = ex.Message;
+
+                int length = richTextBox2.TextLength;
+
+                richTextBox2.AppendText(DateTime.Now + " " + ex.Message + "\n");
+
+                richTextBox2.SelectionStart = length;
+                int flength =ex.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
+                this.tabControl1.SelectedIndex = 0;
             }
         }
 
@@ -393,17 +559,28 @@ namespace Postgres_Manager
                     else
                         value = richTextBox1.Text;
                         
-                    DataTable dt = pc.exec_Sql(value, conn);
+                    DataTable dt = pc.exec_Sql(value, conn, this.richTextBox2);
                     dataGridView1.Visible = true;
                     dataGridView1.ReadOnly = true;
                     dataGridView1.BackgroundColor = Color.White;
                     dataGridView1.DataSource = dt;
-                
+                    this.tabControl1.SelectedIndex = 1;
+
                 }
                 catch (Exception ex)
                 {
-                    
-                    richTextBox2.Text = ex.Message;
+
+
+                    int length = richTextBox2.TextLength;
+
+                    richTextBox2.AppendText(DateTime.Now + " " + ex.Message + "\n");
+
+                    richTextBox2.SelectionStart = length;
+                    int flength = ex.Message.Length + DateTime.Now.ToString().Length + 1;
+                    richTextBox2.SelectionLength = flength;
+                    richTextBox2.SelectionColor = Color.Red;
+                    richTextBox2.ScrollToCaret();
+                    this.tabControl1.SelectedIndex = 0;
                 }
             }
         }
@@ -415,7 +592,7 @@ namespace Postgres_Manager
 
         private void createTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateTable ct = new CreateTable(conn);
+            CreateTable ct = new CreateTable(conn,richTextBox2);
             ct.ShowDialog();
            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
             treeView1.Nodes.Clear();
@@ -423,11 +600,12 @@ namespace Postgres_Manager
             show_components(builder.Host, builder.Port.ToString(), builder.UserName, System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
             Triggers_show(conn);
             Tables_show(conn);
+            seq_show(conn);
             }
 
         private void createTriggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Trigger_Create tc = new Trigger_Create(conn, richTextBox1);
+            Trigger_Create tc = new Trigger_Create(conn, richTextBox1,richTextBox2);
             tc.ShowDialog();
             NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
             treeView1.Nodes.Clear();
@@ -437,6 +615,7 @@ namespace Postgres_Manager
             Tables_show(conn);
             view_show(conn);
             Functions_show(conn);
+            seq_show(conn);
         }
 
         private void createFunctionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -451,6 +630,7 @@ namespace Postgres_Manager
             Tables_show(conn);
             view_show(conn);
             Functions_show(conn);
+            seq_show(conn);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -460,7 +640,7 @@ namespace Postgres_Manager
 
         private void sequenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Sequence s = new Sequence(conn);
+            Sequence s = new Sequence(conn,richTextBox2);
             s.ShowDialog();
             NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
             treeView1.Nodes.Clear();
@@ -470,10 +650,14 @@ namespace Postgres_Manager
             Tables_show(conn);
             view_show(conn);
             Functions_show(conn);
+            seq_show(conn);
         }
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            try
+            {
+                
 
             string selectedNodeText = e.Node.Text;
             if (e.Node.Parent != null)
@@ -482,7 +666,7 @@ namespace Postgres_Manager
                 {
                     
                    richTextBox1.Text= pc.exec_Sql(
-                        "SELECT pg_get_functiondef(p.oid) FROM   pg_proc p JOIN   pg_namespace n ON n.oid = p.pronamespace WHERE  p.proname ILIKE "+"'"+e.Node.Text+"'", conn).Rows[0][0].ToString();
+                        "SELECT pg_get_functiondef(p.oid) FROM   pg_proc p JOIN   pg_namespace n ON n.oid = p.pronamespace WHERE  p.proname ILIKE "+"'"+e.Node.Text+"'", conn, this.richTextBox2).Rows[0][0].ToString();
                 }
                 if (e.Node.Parent.Text == "Sequences:")
                 {
@@ -491,7 +675,8 @@ namespace Postgres_Manager
                 }
                 if (e.Node.Parent.Text == "Tables:")
                 {
-                  
+                    EditTable et = new EditTable(conn,e.Node.Text,richTextBox2);
+                    et.ShowDialog();
                 }
                 if (e.Node.Parent.Text == "Triggers:")
                 {
@@ -500,7 +685,7 @@ namespace Postgres_Manager
                     string ddl = "CREATE ";
 
                     dt = pc.exec_Sql(
-                            "SELECT event_object_table, trigger_name, event_manipulation, action_statement, action_timing , action_condition FROM information_schema.triggers where trigger_name ="+ "'" + e.Node.Text + "'", conn);
+                            "SELECT event_object_table, trigger_name, event_manipulation, action_statement, action_timing , action_condition FROM information_schema.triggers where trigger_name ="+ "'" + e.Node.Text + "'", conn, this.richTextBox2);
                     ddl += dt.Rows[0][1].ToString();
                     ddl += "\n";
                     ddl += dt.Rows[0][4].ToString() + " ";
@@ -508,7 +693,7 @@ namespace Postgres_Manager
                     ddl += dt.Rows[0][0].ToString() + " \n";
                     ddl += " FOR EACH ROW \n";
                     ddl+= dt.Rows[0][5].ToString() + "\n";
-                    ddl += dt.Rows[0][3].ToString() + "\n";
+                    ddl += dt.Rows[0][3].ToString() + ";\n";
                     richTextBox1.Text = ddl;
                 }
                 if (e.Node.Parent.Text == "Views:")
@@ -518,7 +703,7 @@ namespace Postgres_Manager
                     DataTable dt = null;
                     richTextBox1.Clear();
                     dt = pc.exec_Sql(
-                            "select * from pg_views  where schemaname != 'pg_catalog' and schemaname != 'information_schema' and viewname=" +"'"+e.Node.Text+"'", conn);
+                            "select * from pg_views  where schemaname != 'pg_catalog' and schemaname != 'information_schema' and viewname=" +"'"+e.Node.Text+"'", conn, this.richTextBox2);
 
                     ddl += dt.Rows[0][1].ToString();
                     ddl += " AS \n";
@@ -526,11 +711,33 @@ namespace Postgres_Manager
                     richTextBox1.Text = ddl;
                 }
             }
+
+            }
+            catch (Exception ex)
+            {
+                int length = richTextBox2.TextLength; 
+                if(ex.Message== "There is no row at position 0")
+                richTextBox2.AppendText("Error en Base de Datos"+"\n");
+                else
+                {
+                    richTextBox2.AppendText(ex.Message + "\n");
+                }
+                richTextBox2.SelectionStart = length;
+                int flength = ex.Message.Length + DateTime.Now.ToString().Length + 1;
+                richTextBox2.SelectionLength = flength;
+                richTextBox2.SelectionColor = Color.Red;
+                richTextBox2.ScrollToCaret();
+
+
+
+             
+            }
+
         }
 
         private void createViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View v = new View(conn);
+            View v = new View(conn,richTextBox2);
             v.ShowDialog();
             NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
             treeView1.Nodes.Clear();
@@ -540,6 +747,12 @@ namespace Postgres_Manager
             Tables_show(conn);
             view_show(conn);
             Functions_show(conn);
+            seq_show(conn);
+        }
+
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

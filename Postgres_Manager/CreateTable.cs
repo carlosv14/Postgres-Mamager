@@ -16,17 +16,19 @@ namespace Postgres_Manager
 
         NpgsqlConnection conn = null;
         Postgres_Connection pc = null;
+        private RichTextBox t;
        
-        public CreateTable(NpgsqlConnection conn)
+        public CreateTable(NpgsqlConnection conn,RichTextBox t)
         {
             InitializeComponent();
             this.conn = conn;
+            this.t = t;
             this.pc = new Postgres_Connection();
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-              comboBox1.DataSource = pc.exec_Sql("select * from pg_user", conn);
+              comboBox1.DataSource = pc.exec_Sql("select * from pg_user", conn,t);
               comboBox1.DisplayMember = "usename";
-              comboBox2.DataSource = pc.exec_Sql("select * from pg_tablespace", conn); ;
+              comboBox2.DataSource = pc.exec_Sql("select * from pg_tablespace", conn,t); ;
               comboBox2.DisplayMember = "spcname";
 
               DataGridViewCheckBoxColumn pk = new DataGridViewCheckBoxColumn();
@@ -38,7 +40,7 @@ namespace Postgres_Manager
               DataGridViewComboBoxColumn type = new DataGridViewComboBoxColumn();
               type.HeaderText = "DATA TYPE";
               type.Name= "type";
-              type.DataSource = pc.exec_Sql("SELECT  typname from pg_catalog.pg_type t WHERE t.typrelid = 0 AND pg_catalog.pg_type_is_visible(t.oid)", conn);
+              type.DataSource = pc.exec_Sql("SELECT  typname from pg_catalog.pg_type t WHERE t.typrelid = 0 AND pg_catalog.pg_type_is_visible(t.oid)", conn,t);
               type.DisplayMember = "typname";
               dataGridView1.Columns.Add(type);
               dataGridView1.Columns.Add("LENGTH", "LENGTH");
@@ -142,7 +144,7 @@ namespace Postgres_Manager
 
 
             }
-            pc.exec_Sql(richTextBox1.Text, conn);
+            pc.exec_Sql(richTextBox1.Text, conn,t);
             this.Close();
         }
     }

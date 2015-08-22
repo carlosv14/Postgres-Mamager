@@ -45,3 +45,4 @@ F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\
 F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\Debug\Postgres_Manager.csproj.GenerateResource.Cache
 F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\Debug\Postgres_Manager.Sequence.resources
 F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\Debug\Postgres_Manager.View.resources
+F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\Debug\Postgres_Manager.EditTable.resources

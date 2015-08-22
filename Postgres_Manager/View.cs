@@ -14,12 +14,14 @@ namespace Postgres_Manager
     public partial class View : Form
     {
         private NpgsqlConnection conn;
-        private Postgres_Connection pc; 
-        public View(NpgsqlConnection conn)
+        private Postgres_Connection pc;
+        private RichTextBox t;
+        public View(NpgsqlConnection conn,RichTextBox t)
         {
             InitializeComponent();
             this.conn = conn;
             this.pc = new Postgres_Connection();
+            this.t = t;
 
         }
 
@@ -34,7 +36,7 @@ namespace Postgres_Manager
             ddl = "CREATE VIEW ";
             ddl += textBox1.Text + " AS \n";
             ddl += richTextBox1.Text;
-            pc.exec_Sql(ddl, conn);
+            pc.exec_Sql(ddl, conn,t);
             this.Close();
         }
 

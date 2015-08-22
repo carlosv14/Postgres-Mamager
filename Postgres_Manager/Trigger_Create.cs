@@ -17,11 +17,13 @@ namespace Postgres_Manager
         private Postgres_Connection pc = null;
         private string DDL;
         private RichTextBox rt = null;
-        public Trigger_Create(NpgsqlConnection conn,RichTextBox rt)
+        private RichTextBox t;
+        public Trigger_Create(NpgsqlConnection conn,RichTextBox rt,RichTextBox t)
         {
             InitializeComponent();
             this.conn = conn;
             pc = new Postgres_Connection();
+            this.t = t;
             this.rt = rt;
         }
 
@@ -38,12 +40,12 @@ namespace Postgres_Manager
                 DataTable columns = null;
                 if (conn.Database != "postgres")
                 {
-                    dt = pc.exec_Sql("select tablename from pg_tables where schemaname != 'pg_catalog' and schemaname != 'information_schema' ", conn);
+                    dt = pc.exec_Sql("select tablename from pg_tables where schemaname != 'pg_catalog' and schemaname != 'information_schema' ", conn,t);
 
                 }
                 else
                 {
-                    dt = pc.exec_Sql("select tablename from pg_tables", conn);
+                    dt = pc.exec_Sql("select tablename from pg_tables", conn,t);
                 }
                 this.conn = conn;
                 comboBox2.DataSource = dt;

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,7 @@ namespace Postgres_Manager
             }
         }
 
-        public DataTable exec_Sql(string sql, NpgsqlConnection conn)
+        public DataTable exec_Sql(string sql, NpgsqlConnection conn,RichTextBox t)
         {
             try
             {
@@ -51,11 +52,28 @@ namespace Postgres_Manager
                 da.Fill(ds);
                 if (ds.Tables.Count > 0)
                     dt = ds.Tables[0];
+                int length = t.TextLength;
+                string msg = "Succesfull Query!";
+                t.AppendText(DateTime.Now + " "+msg + "\n");
+
+                t.SelectionStart = length;
+                int flength = msg.Length + DateTime.Now.ToString().Length + 1;
+                t.SelectionLength = flength;
+                t.SelectionColor = Color.Green;
+                t.ScrollToCaret();
                 return dt;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                int length = t.TextLength;
+
+               t.AppendText(DateTime.Now + " " + ex.Message + "\n");
+
+                t.SelectionStart = length;
+                int flength = ex.Message.Length + DateTime.Now.ToString().Length + 1;
+                t.SelectionLength = flength;
+                t.SelectionColor = Color.Red;
+                t.ScrollToCaret();
 
             }
             return new DataTable();
