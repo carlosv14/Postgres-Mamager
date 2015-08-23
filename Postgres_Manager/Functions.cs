@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ScintillaNET;
+
 
 namespace Postgres_Manager
 {
@@ -16,12 +18,13 @@ namespace Postgres_Manager
      
        
         private string DDL = null;
-        private RichTextBox RT;
-        public Functions( RichTextBox RT)
+        private Scintilla RT;
+        public Functions( Scintilla RT)
         {
             InitializeComponent();
             this.RT = RT;
-        
+            
+
             dataGridView1.Columns.Add("Nombre","Nombre");
             dataGridView1.Columns.Add("Tipo","Tipo");
         }

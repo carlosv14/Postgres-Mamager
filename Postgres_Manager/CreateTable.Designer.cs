@@ -39,7 +39,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox1 = new ScintillaNET.Scintilla();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -160,9 +160,11 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(7, 15);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(541, 364);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.richTextBox1.Size = new System.Drawing.Size(541, 372);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.UseTabs = false;
+            this.richTextBox1.Delete += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox1_Delete);
+            this.richTextBox1.Insert += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox1_Insert);
             // 
             // button1
             // 
@@ -207,7 +209,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
+        private ScintillaNET.Scintilla richTextBox1;
     }
 }

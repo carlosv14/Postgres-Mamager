@@ -32,10 +32,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new ScintillaNET.Scintilla();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.richTextBox2 = new ScintillaNET.Scintilla();
             this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -79,6 +79,16 @@
             this.tabPage1.Text = "SQL";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(252, 142);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.UseTabs = false;
+            this.richTextBox1.Delete += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox1_Delete);
+            this.richTextBox1.Insert += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox1_Insert);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.richTextBox2);
@@ -90,6 +100,16 @@
             this.tabPage2.Text = "DDL";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(252, 142);
+            this.richTextBox2.TabIndex = 0;
+            this.richTextBox2.UseTabs = false;
+            this.richTextBox2.Delete += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox2_Delete);
+            this.richTextBox2.Insert += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox2_Insert);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(107, 255);
@@ -99,22 +119,6 @@
             this.button1.Text = "Create";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(252, 142);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(252, 142);
-            this.richTextBox2.TabIndex = 1;
-            this.richTextBox2.Text = "";
             // 
             // View
             // 
@@ -144,7 +148,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private ScintillaNET.Scintilla richTextBox2;
+        private ScintillaNET.Scintilla richTextBox1;
     }
 }

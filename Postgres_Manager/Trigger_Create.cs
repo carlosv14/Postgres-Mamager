@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ScintillaNET;
 
 namespace Postgres_Manager
 {
@@ -16,9 +17,9 @@ namespace Postgres_Manager
         private NpgsqlConnection conn = null;
         private Postgres_Connection pc = null;
         private string DDL;
-        private RichTextBox rt = null;
+        private Scintilla rt = null;
         private RichTextBox t;
-        public Trigger_Create(NpgsqlConnection conn,RichTextBox rt,RichTextBox t)
+        public Trigger_Create(NpgsqlConnection conn,Scintilla rt,RichTextBox t)
         {
             InitializeComponent();
             this.conn = conn;

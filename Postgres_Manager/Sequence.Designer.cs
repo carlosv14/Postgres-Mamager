@@ -42,8 +42,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.richTextBox1 = new ScintillaNET.Scintilla();
             this.tabControl1.SuspendLayout();
             this.Options.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -180,14 +180,6 @@
             this.tabPage2.Text = "DDL";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 3);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(334, 187);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(148, 322);
@@ -197,6 +189,14 @@
             this.button1.Text = "Create";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(343, 196);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.UseTabs = false;
             // 
             // Sequence
             // 
@@ -235,7 +235,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
+        private ScintillaNET.Scintilla richTextBox1;
     }
 }
