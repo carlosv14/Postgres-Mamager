@@ -31,11 +31,13 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createTriggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createFunctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sequenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createIndexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -43,6 +45,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new ScintillaNET.Scintilla();
+            this.createTablespaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -73,57 +76,74 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
             this.createTableToolStripMenuItem,
             this.createTriggerToolStripMenuItem,
             this.createFunctionToolStripMenuItem,
             this.sequenceToolStripMenuItem,
-            this.createViewToolStripMenuItem});
+            this.createViewToolStripMenuItem,
+            this.createIndexToolStripMenuItem,
+            this.createTablespaceToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
+            this.toolStripMenuItem1.Text = "Create Database";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // createTableToolStripMenuItem
             // 
             this.createTableToolStripMenuItem.Name = "createTableToolStripMenuItem";
-            this.createTableToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.createTableToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.createTableToolStripMenuItem.Text = "Create Table";
             this.createTableToolStripMenuItem.Click += new System.EventHandler(this.createTableToolStripMenuItem_Click);
             // 
             // createTriggerToolStripMenuItem
             // 
             this.createTriggerToolStripMenuItem.Name = "createTriggerToolStripMenuItem";
-            this.createTriggerToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.createTriggerToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.createTriggerToolStripMenuItem.Text = "Create Trigger";
             this.createTriggerToolStripMenuItem.Click += new System.EventHandler(this.createTriggerToolStripMenuItem_Click);
             // 
             // createFunctionToolStripMenuItem
             // 
             this.createFunctionToolStripMenuItem.Name = "createFunctionToolStripMenuItem";
-            this.createFunctionToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.createFunctionToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.createFunctionToolStripMenuItem.Text = "Create Function";
             this.createFunctionToolStripMenuItem.Click += new System.EventHandler(this.createFunctionToolStripMenuItem_Click);
             // 
             // sequenceToolStripMenuItem
             // 
             this.sequenceToolStripMenuItem.Name = "sequenceToolStripMenuItem";
-            this.sequenceToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.sequenceToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.sequenceToolStripMenuItem.Text = "Create Sequence";
             this.sequenceToolStripMenuItem.Click += new System.EventHandler(this.sequenceToolStripMenuItem_Click);
             // 
             // createViewToolStripMenuItem
             // 
             this.createViewToolStripMenuItem.Name = "createViewToolStripMenuItem";
-            this.createViewToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.createViewToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.createViewToolStripMenuItem.Text = "Create View";
             this.createViewToolStripMenuItem.Click += new System.EventHandler(this.createViewToolStripMenuItem_Click);
             // 
+            // createIndexToolStripMenuItem
+            // 
+            this.createIndexToolStripMenuItem.Name = "createIndexToolStripMenuItem";
+            this.createIndexToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.createIndexToolStripMenuItem.Text = "Create Index";
+            this.createIndexToolStripMenuItem.Click += new System.EventHandler(this.createIndexToolStripMenuItem_Click);
+            // 
             // button1
             // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Location = new System.Drawing.Point(229, 429);
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(229, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(31, 27);
+            this.button1.Size = new System.Drawing.Size(31, 24);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -188,6 +208,13 @@
             this.richTextBox1.Delete += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox1_Delete);
             this.richTextBox1.Insert += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox1_Insert);
             // 
+            // createTablespaceToolStripMenuItem
+            // 
+            this.createTablespaceToolStripMenuItem.Name = "createTablespaceToolStripMenuItem";
+            this.createTablespaceToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.createTablespaceToolStripMenuItem.Text = "Create Tablespace";
+            this.createTablespaceToolStripMenuItem.Click += new System.EventHandler(this.createTablespaceToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,6 +257,9 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private ScintillaNET.Scintilla richTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem createIndexToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createTablespaceToolStripMenuItem;
     }
 }
 

@@ -43,16 +43,16 @@ namespace Postgres_Manager
             richTextBox1.Styles[Style.Cpp.Number].ForeColor = Color.Red;
             richTextBox1.Styles[Style.Cpp.Word].ForeColor = Color.Blue;
             richTextBox1.Styles[Style.Cpp.Word2].ForeColor = Color.Fuchsia;
-            richTextBox1.Styles[Style.Cpp.String].ForeColor = Color.FromArgb(163, 21, 21); // Red
-            richTextBox1.Styles[Style.Cpp.Character].ForeColor = Color.FromArgb(163, 21, 21); // Red
-            richTextBox1.Styles[Style.Cpp.Verbatim].ForeColor = Color.FromArgb(163, 21, 21); // Red
+            richTextBox1.Styles[Style.Cpp.String].ForeColor = Color.Teal; 
+            richTextBox1.Styles[Style.Cpp.Character].ForeColor = Color.Purple; 
+            richTextBox1.Styles[Style.Cpp.Verbatim].ForeColor = Color.FromArgb(163, 21, 21); 
             richTextBox1.Styles[Style.Cpp.Operator].ForeColor = Color.Silver;
-            richTextBox1.Styles[Style.Cpp.Preprocessor].ForeColor = Color.Purple;
+           
             richTextBox1.Lexer = Lexer.Cpp;
             richTextBox1.Margins[0].Width = 16;
 
-            richTextBox1.SetKeywords(0, "abort absolute access action add admin after aggregate all also alter always analyse analyze and any array as asc assertion assignment asymmetric at attribute authorization backward before begin between bigint binary bit boolean both by cache called cascade cascaded case cast catalog chain char character characteristics check checkpoint class close cluster coalesce collate collation column comment comments commit committed concurrently configuration connection constraint constraints content continue conversion copy cost create cross csv current current_catalog current_date current_role current_schema current_time current_timestamp current_user cursor cycle data database day deallocate dec decimal declare default defaults deferrable deferred definer delete delimiter delimiters desc dictionary disable discard distinct do document domain double drop each else enable encoding encrypted end enum escape event except exclude excluding exclusive execute exists explain extension external extract false family fetch filter first float following for force foreign forward freeze from full function functions global grant granted greatest group handler having header hold hour identity if ilike immediate immutable implicit in including increment index indexes inherit inherits initially inline inner inout input insensitive insert instead int integer intersect interval into invoker is isnull isolation join key label language large last lateral lc_collate lc_ctype leading leakproof least left level like limit listen load local localtime localtimestamp location lock mapping match materialized maxvalue minute minvalue mode month move name names national natural nchar next no none not nothing notify notnull nowait null nullif nulls numeric object of off offset oids on only operator option options or order ordinality out outer over overlaps overlay owned owner parser partial partition passing password placing plans position preceding precision prepare prepared preserve primary prior privileges procedural procedure program quote range read real reassign recheck recursive ref references refresh reindex relative release rename repeatable replace replica reset restart restrict returning returns revoke right role rollback row rows rule savepoint schema scroll search second security select sequence sequences serializable server session session_user set setof share show similar simple smallint snapshot some stable standalone start statement statistics stdin stdout storage strict strip substring symmetric sysid system table tables tablespace temp template temporary text then time timestamp to trailing transaction treat trigger trim true truncate trusted type types unbounded uncommitted unencrypted union unique unknown unlisten unlogged until user using vacuum valid validate validator value values varchar variadic varying verbose version view views volatile when where whitespace window with within without work wrapper write xml xmlattributes xmlconcat xmlelement xmlexists xmlforest xmlparse xmlpi xmlroot xmlserialize year yes zone ABORT ABSOLUTE ACCESS ACTION ADD ADMIN AFTER AGGREGATE ALL ALSO ALTER ALWAYS ANALYSE ANALYZE AND ANY ARRAY AS ASC ASSERTION ASSIGNMENT ASYMMETRIC AT ATTRIBUTE AUTHORIZATION BACKWARD BEFORE BEGIN BETWEEN BIGINT BINARY BIT BOOLEAN BOTH BY CACHE CALLED CASCADE CASCADED CASE CAST CATALOG CHAIN CHAR CHARACTER CHARACTERISTICS CHECK CHECKPOINT CLASS CLOSE CLUSTER COALESCE COLLATE COLLATION COLUMN COMMENT COMMENTS COMMIT COMMITTED CONCURRENTLY CONFIGURATION CONNECTION CONSTRAINT CONSTRAINTS CONTENT CONTINUE CONVERSION COPY COST CREATE CROSS CSV CURRENT CURRENT_CATALOG CURRENT_DATE CURRENT_ROLE CURRENT_SCHEMA CURRENT_TIME CURRENT_TIMESTAMP CURRENT_USER CURSOR CYCLE DATA DATABASE DAY DEALLOCATE DEC DECIMAL DECLARE DEFAULT DEFAULTS DEFERRABLE DEFERRED DEFINER DELETE DELIMITER DELIMITERS DESC DICTIONARY DISABLE DISCARD DISTINCT DO DOCUMENT DOMAIN DOUBLE DROP EACH ELSE ENABLE ENCODING ENCRYPTED END ENUM ESCAPE EVENT EXCEPT EXCLUDE EXCLUDING EXCLUSIVE EXECUTE EXISTS EXPLAIN EXTENSION EXTERNAL EXTRACT FALSE FAMILY FETCH FILTER FIRST FLOAT FOLLOWING FOR FORCE FOREIGN FORWARD FREEZE FROM FULL FUNCTION FUNCTIONS GLOBAL GRANT GRANTED GREATEST GROUP HANDLER HAVING HEADER HOLD HOUR IDENTITY IF ILIKE IMMEDIATE IMMUTABLE IMPLICIT IN INCLUDING INCREMENT INDEX INDEXES INHERIT INHERITS INITIALLY INLINE INNER INOUT INPUT INSENSITIVE INSERT INSTEAD INT INTEGER INTERSECT INTERVAL INTO INVOKER IS ISNULL ISOLATION JOIN KEY LABEL LANGUAGE LARGE LAST LATERAL LC_COLLATE LC_CTYPE LEADING LEAKPROOF LEAST LEFT LEVEL LIKE LIMIT LISTEN LOAD LOCAL LOCALTIME LOCALTIMESTAMP LOCATION LOCK MAPPING MATCH MATERIALIZED MAXVALUE MINUTE MINVALUE MODE MONTH MOVE NAME NAMES NATIONAL NATURAL NCHAR NEXT NO NONE NOT NOTHING NOTIFY NOTNULL NOWAIT NULL NULLIF NULLS NUMERIC OBJECT OF OFF OFFSET OIDS ON ONLY OPERATOR OPTION OPTIONS OR ORDER ORDINALITY OUT OUTER OVER OVERLAPS OVERLAY OWNED OWNER PARSER PARTIAL PARTITION PASSING PASSWORD PLACING PLANS POSITION PRECEDING PRECISION PREPARE PREPARED PRESERVE PRIMARY PRIOR PRIVILEGES PROCEDURAL PROCEDURE PROGRAM QUOTE RANGE READ REAL REASSIGN RECHECK RECURSIVE REF REFERENCES REFRESH REINDEX RELATIVE RELEASE RENAME REPEATABLE REPLACE REPLICA RESET RESTART RESTRICT RETURNING RETURNS REVOKE RIGHT ROLE ROLLBACK ROW ROWS RULE SAVEPOINT SCHEMA SCROLL SEARCH SECOND SECURITY SELECT SEQUENCE SEQUENCES SERIALIZABLE SERVER SESSION SESSION_USER SET SETOF SHARE SHOW SIMILAR SIMPLE SMALLINT SNAPSHOT SOME STABLE STANDALONE START STATEMENT STATISTICS STDIN STDOUT STORAGE STRICT STRIP SUBSTRING SYMMETRIC SYSID SYSTEM TABLE TABLES TABLESPACE TEMP TEMPLATE TEMPORARY TEXT THEN TIME TIMESTAMP TO TRAILING TRANSACTION TREAT TRIGGER TRIM TRUE TRUNCATE TRUSTED TYPE TYPES UNBOUNDED UNCOMMITTED UNENCRYPTED UNION UNIQUE UNKNOWN UNLISTEN UNLOGGED UNTIL USER USING VACUUM VALID VALIDATE VALIDATOR VALUE VALUES VARCHAR VARIADIC VARYING VERBOSE VERSION VIEW VIEWS VOLATILE WHEN WHERE WHITESPACE WINDOW WITH WITHIN WITHOUT WORK WRAPPER WRITE XML XMLATTRIBUTES XMLCONCAT XMLELEMENT XMLEXISTS XMLFOREST XMLPARSE XMLPI XMLROOT XMLSERIALIZE YEAR YES ZONE");
-            richTextBox1.SetKeywords(1, "update UPDATE");
+            //richTextBox1.SetKeywords(0, "abort absolute access action add admin after aggregate all also alter always analyse analyze and any array as asc assertion assignment asymmetric at attribute authorization backward before begin between bigint binary bit boolean both by cache called cascade cascaded case cast catalog chain char character characteristics check checkpoint class close cluster coalesce collate collation column comment comments commit committed concurrently configuration connection constraint constraints content continue conversion copy cost create cross csv current current_catalog current_date current_role current_schema current_time current_timestamp current_user cursor cycle data database day deallocate dec decimal declare default defaults deferrable deferred definer delete delimiter delimiters desc dictionary disable discard distinct do document domain double drop each else enable encoding encrypted end enum escape event except exclude excluding exclusive execute exists explain extension external extract false family fetch filter first float following for force foreign forward freeze from full function functions global grant granted greatest group handler having header hold hour identity if ilike immediate immutable implicit in including increment index indexes inherit inherits initially inline inner inout input insensitive insert instead int integer intersect interval into invoker is isnull isolation join key label language large last lateral lc_collate lc_ctype leading leakproof least left level like limit listen load local localtime localtimestamp location lock mapping match materialized maxvalue minute minvalue mode month move name names national natural nchar next no none not nothing notify notnull nowait null nullif nulls numeric object of off offset oids on only operator option options or order ordinality out outer over overlaps overlay owned owner parser partial partition passing password placing plans position preceding precision prepare prepared preserve primary prior privileges procedural procedure program quote range read real reassign recheck recursive ref references refresh reindex relative release rename repeatable replace replica reset restart restrict returning returns revoke right role rollback row rows rule savepoint schema scroll search second security select sequence sequences serializable server session session_user set setof share show similar simple smallint snapshot some stable standalone start statement statistics stdin stdout storage strict strip substring symmetric sysid system table tables tablespace temp template temporary text then time timestamp to trailing transaction treat trigger trim true truncate trusted type types unbounded uncommitted unencrypted union unique unknown unlisten unlogged until user using vacuum valid validate validator value values varchar variadic varying verbose version view views volatile when where whitespace window with within without work wrapper write xml xmlattributes xmlconcat xmlelement xmlexists xmlforest xmlparse xmlpi xmlroot xmlserialize year yes zone ABORT ABSOLUTE ACCESS ACTION ADD ADMIN AFTER AGGREGATE ALL ALSO ALTER ALWAYS ANALYSE ANALYZE AND ANY ARRAY AS ASC ASSERTION ASSIGNMENT ASYMMETRIC AT ATTRIBUTE AUTHORIZATION BACKWARD BEFORE BEGIN BETWEEN BIGINT BINARY BIT BOOLEAN BOTH BY CACHE CALLED CASCADE CASCADED CASE CAST CATALOG CHAIN CHAR CHARACTER CHARACTERISTICS CHECK CHECKPOINT CLASS CLOSE CLUSTER COALESCE COLLATE COLLATION COLUMN COMMENT COMMENTS COMMIT COMMITTED CONCURRENTLY CONFIGURATION CONNECTION CONSTRAINT CONSTRAINTS CONTENT CONTINUE CONVERSION COPY COST CREATE CROSS CSV CURRENT CURRENT_CATALOG CURRENT_DATE CURRENT_ROLE CURRENT_SCHEMA CURRENT_TIME CURRENT_TIMESTAMP CURRENT_USER CURSOR CYCLE DATA DATABASE DAY DEALLOCATE DEC DECIMAL DECLARE DEFAULT DEFAULTS DEFERRABLE DEFERRED DEFINER DELETE DELIMITER DELIMITERS DESC DICTIONARY DISABLE DISCARD DISTINCT DO DOCUMENT DOMAIN DOUBLE DROP EACH ELSE ENABLE ENCODING ENCRYPTED END ENUM ESCAPE EVENT EXCEPT EXCLUDE EXCLUDING EXCLUSIVE EXECUTE EXISTS EXPLAIN EXTENSION EXTERNAL EXTRACT FALSE FAMILY FETCH FILTER FIRST FLOAT FOLLOWING FOR FORCE FOREIGN FORWARD FREEZE FROM FULL FUNCTION FUNCTIONS GLOBAL GRANT GRANTED GREATEST GROUP HANDLER HAVING HEADER HOLD HOUR IDENTITY IF ILIKE IMMEDIATE IMMUTABLE IMPLICIT IN INCLUDING INCREMENT INDEX INDEXES INHERIT INHERITS INITIALLY INLINE INNER INOUT INPUT INSENSITIVE INSERT INSTEAD INT INTEGER INTERSECT INTERVAL INTO INVOKER IS ISNULL ISOLATION JOIN KEY LABEL LANGUAGE LARGE LAST LATERAL LC_COLLATE LC_CTYPE LEADING LEAKPROOF LEAST LEFT LEVEL LIKE LIMIT LISTEN LOAD LOCAL LOCALTIME LOCALTIMESTAMP LOCATION LOCK MAPPING MATCH MATERIALIZED MAXVALUE MINUTE MINVALUE MODE MONTH MOVE NAME NAMES NATIONAL NATURAL NCHAR NEXT NO NONE NOT NOTHING NOTIFY NOTNULL NOWAIT NULL NULLIF NULLS NUMERIC OBJECT OF OFF OFFSET OIDS ON ONLY OPERATOR OPTION OPTIONS OR ORDER ORDINALITY OUT OUTER OVER OVERLAPS OVERLAY OWNED OWNER PARSER PARTIAL PARTITION PASSING PASSWORD PLACING PLANS POSITION PRECEDING PRECISION PREPARE PREPARED PRESERVE PRIMARY PRIOR PRIVILEGES PROCEDURAL PROCEDURE PROGRAM QUOTE RANGE READ REAL REASSIGN RECHECK RECURSIVE REF REFERENCES REFRESH REINDEX RELATIVE RELEASE RENAME REPEATABLE REPLACE REPLICA RESET RESTART RESTRICT RETURNING RETURNS REVOKE RIGHT ROLE ROLLBACK ROW ROWS RULE SAVEPOINT SCHEMA SCROLL SEARCH SECOND SECURITY SELECT SEQUENCE SEQUENCES SERIALIZABLE SERVER SESSION SESSION_USER SET SETOF SHARE SHOW SIMILAR SIMPLE SMALLINT SNAPSHOT SOME STABLE STANDALONE START STATEMENT STATISTICS STDIN STDOUT STORAGE STRICT STRIP SUBSTRING SYMMETRIC SYSID SYSTEM TABLE TABLES TABLESPACE TEMP TEMPLATE TEMPORARY TEXT THEN TIME TIMESTAMP TO TRAILING TRANSACTION TREAT TRIGGER TRIM TRUE TRUNCATE TRUSTED TYPE TYPES UNBOUNDED UNCOMMITTED UNENCRYPTED UNION UNIQUE UNKNOWN UNLISTEN UNLOGGED UNTIL USER USING VACUUM VALID VALIDATE VALIDATOR VALUE VALUES VARCHAR VARIADIC VARYING VERBOSE VERSION VIEW VIEWS VOLATILE WHEN WHERE WHITESPACE WINDOW WITH WITHIN WITHOUT WORK WRAPPER WRITE XML XMLATTRIBUTES XMLCONCAT XMLELEMENT XMLEXISTS XMLFOREST XMLPARSE XMLPI XMLROOT XMLSERIALIZE YEAR YES ZONE");
+            //richTextBox1.SetKeywords(1, "update UPDATE");
            
             firstLoad();
             richTextBox1.Enabled = false;
@@ -88,6 +88,8 @@ namespace Postgres_Manager
       Properties.Resources.tgr);
             imgList.Images.Add("view",
      Properties.Resources.view);
+            imgList.Images.Add("index",
+    Properties.Resources.indexs);
             treeView1.ImageList = imgList;
             treeView1.Nodes.Add("Servers:");
             treeView1.Nodes[0].ImageIndex = 0;
@@ -102,6 +104,8 @@ namespace Postgres_Manager
         
         private void Form1_Load(object sender, EventArgs e)
         {
+          
+          
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -202,7 +206,7 @@ namespace Postgres_Manager
                     treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[i].Nodes.Add("Views:", "Views:");
                 }
                 
-                conn.Close();
+                
             }
             catch (Exception msg)
             {
@@ -254,6 +258,7 @@ namespace Postgres_Manager
             {
                 DataTable dt = null;
                 DataTable columns = null;
+                DataTable indexs = null;
                 if (conn.Database != "postgres")
                 {
                      dt = pc.exec_Sql("select tablename from pg_tables where schemaname != 'pg_catalog' and schemaname != 'information_schema' ", conn, this.richTextBox2);
@@ -282,14 +287,41 @@ namespace Postgres_Manager
                             columns =
                                 pc.exec_Sql(
                                     "SELECT column_name, data_type FROM information_schema.columns WHERE table_name=" + "'" + dt.Rows[i][0].ToString() + "'", conn, this.richTextBox2);
-
+                        indexs =
+                            pc.exec_Sql(
+                                "select t.relname as table_name, i.relname as index_name, a.attname as column_name from pg_class t, pg_class i, pg_index ix, pg_attribute a where t.oid = ix.indrelid and i.oid = ix.indexrelid and a.attrelid = t.oid and a.attnum = ANY(ix.indkey) and t.relkind = 'r' and t.relname like "+
+                        "'" + dt.Rows[i][0].ToString() + "'" + " order by t.relname, i.relname;",
+                                conn, this.richTextBox2);
                         for (int j = 0; j < columns.Rows.Count; j++)
                         {
                             treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes.Add(columns.Rows[j][0].ToString(),
                             columns.Rows[j][0].ToString());
+                         
+
                         }
+
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes.Add("INDEXES");
+
+                        for (int j = 0; j < indexs.Rows.Count; j++)
+                        {
+
+                          treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes[treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes.Count-1].Nodes.Add(
+                               indexs.Rows[j][1].ToString(),
+                              indexs.Rows[j][1].ToString());
+                            treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes[
+                                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes.Count - 1]
+                                .Nodes[j].SelectedImageIndex = 9;
+
+                            treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes[
+                                treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes.Count - 1]
+                                .Nodes[j].ImageIndex = 9;
+                        }
+
                         treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].ImageIndex = 4;
                         treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].SelectedImageIndex = 4;
+
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes[treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes.Count - 1].ImageIndex = 9;
+                        treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes[treeView1.Nodes[0].Nodes[0].Nodes[0].Nodes[index].Nodes[2].Nodes[i].Nodes.Count - 1].SelectedImageIndex = 9;
                         columns.Clear();
                     }
                     
@@ -467,7 +499,7 @@ namespace Postgres_Manager
                     treeView1.Nodes[0].Nodes[0].Nodes[1].Nodes[i].ImageIndex = 2;
                     treeView1.Nodes[0].Nodes[0].Nodes[1].Nodes[i].SelectedImageIndex = 2;
                 }
-                conn.Close();
+                
             }
             catch (Exception msg)
             {
@@ -502,7 +534,7 @@ namespace Postgres_Manager
                     treeView1.Nodes[0].Nodes[0].Nodes[2].Nodes[i].ImageIndex = 3;
                     treeView1.Nodes[0].Nodes[0].Nodes[2].Nodes[i].SelectedImageIndex = 3;
                 }
-                conn.Close();
+                
             }
             catch (Exception msg)   
             {
@@ -528,13 +560,17 @@ namespace Postgres_Manager
                 if (conn != null)
                 {
                     Databases_Show(conn);
-                    conn.Open();
+                    
                     Tables_show(conn);
+                    Triggers_show(conn);
+                    seq_show(conn);
+                    Functions_show(conn);
+                    view_show(conn);
                     Tablespaces_Show(conn);
-                    conn.Open();
+                   
                     Users_Show(conn);
-
-                }
+              
+            }
                 else
                 {
                     treeView1.CollapseAll();
@@ -552,12 +588,9 @@ namespace Postgres_Manager
                 else
                     value = richTextBox1.Text;
 
-                DataTable dt = pc.exec_Sql(value, conn, this.richTextBox2);
-                dataGridView1.Visible = true;
-                dataGridView1.ReadOnly = true;
-                dataGridView1.BackgroundColor = Color.White;
-                dataGridView1.DataSource = dt;
-                this.tabControl1.SelectedIndex = 1;
+                 pc.special_query(tabControl1,value, conn, this.richTextBox2);
+              
+               
 
             }
             catch (Exception ex)
@@ -626,30 +659,21 @@ namespace Postgres_Manager
         {
             CreateTable ct = new CreateTable(conn,richTextBox2);
             ct.ShowDialog();
-           NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
-            treeView1.Nodes.Clear();
-            firstLoad();
-            show_components(builder.Host, builder.Port.ToString(), builder.UserName, System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
-            Triggers_show(conn);
-            Tables_show(conn);
-            seq_show(conn);
-            Functions_show(conn);
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
+            treeView1.Nodes[0].Nodes[0].Nodes.Clear();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName,
+                System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
 
-            }
+        }
 
         private void createTriggerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Trigger_Create tc = new Trigger_Create(conn, richTextBox1,richTextBox2);
             tc.ShowDialog();
             NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
-            treeView1.Nodes.Clear();
-            firstLoad();
-            show_components(builder.Host, builder.Port.ToString(), builder.UserName, System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
-            Triggers_show(conn);
-            Tables_show(conn);
-            view_show(conn);
-            Functions_show(conn);
-            seq_show(conn);
+            treeView1.Nodes[0].Nodes[0].Nodes.Clear();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName,
+                System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
         }
 
         private void createFunctionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -657,14 +681,9 @@ namespace Postgres_Manager
             Functions fn = new Functions(richTextBox1);
             fn.ShowDialog();
             NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
-            treeView1.Nodes.Clear();
-            firstLoad();
-            show_components(builder.Host, builder.Port.ToString(), builder.UserName, System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
-            Triggers_show(conn);
-            Tables_show(conn);
-            view_show(conn);
-            Functions_show(conn);
-            seq_show(conn);
+            treeView1.Nodes[0].Nodes[0].Nodes.Clear();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName,
+                System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -677,14 +696,9 @@ namespace Postgres_Manager
             Sequence s = new Sequence(conn,richTextBox2);
             s.ShowDialog();
             NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
-            treeView1.Nodes.Clear();
-            firstLoad();
-            show_components(builder.Host, builder.Port.ToString(), builder.UserName, System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
-            Triggers_show(conn);
-            Tables_show(conn);
-            view_show(conn);
-            Functions_show(conn);
-            seq_show(conn);
+            treeView1.Nodes[0].Nodes[0].Nodes.Clear();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName,
+                System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
         }
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -698,21 +712,39 @@ namespace Postgres_Manager
             {
                 if (e.Node.Parent.Text == "Functions:")
                 {
-                    
+                    richTextBox1.Clear();
                    richTextBox1.Text= pc.exec_Sql(
                         "SELECT pg_get_functiondef(p.oid) FROM   pg_proc p JOIN   pg_namespace n ON n.oid = p.pronamespace WHERE  p.proname ILIKE "+"'"+e.Node.Text+"'", conn, this.richTextBox2).Rows[0][0].ToString();
                 }
                 if (e.Node.Parent.Text == "Sequences:")
                 {
-                   
-
+                        DataTable dt = new DataTable();
+                        dt = pc.exec_Sql("select s.sequence_name, s.start_value, s.minimum_value, s.maximum_value, s.increment, s.cycle_option from information_schema.sequences s where s.sequence_name = "+"'"+e.Node.Text+"'",conn,richTextBox2);
+                        string DDL = "";
+                    DDL += "CREATE ";
+                    DDL+= dt.Rows[0][0].ToString();
+                    DDL += " INCREMENT BY ";
+                    DDL+= dt.Rows[0][4].ToString() + " \n";
+                    DDL += "MINVALUE ";
+                    DDL += dt.Rows[0][2].ToString();
+                    DDL += " MAXVALUE ";
+                        DDL += dt.Rows[0][3].ToString();
+                        DDL += ";";
+                    richTextBox1.Text = DDL;
                 }
                 if (e.Node.Parent.Text == "Tables:")
                 {
                     EditTable et = new EditTable(conn,e.Node.Text,richTextBox2);
                     et.ShowDialog();
-                }
-                if (e.Node.Parent.Text == "Triggers:")
+                        NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
+                        treeView1.Nodes[0].Nodes[0].Nodes.Clear();
+                    show_components(builder.Host, builder.Port.ToString(), builder.UserName,
+                        System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
+                       
+
+
+                    }
+                    if (e.Node.Parent.Text == "Triggers:")
                 {
                     DataTable dt = null;
                     richTextBox1.Clear();
@@ -774,14 +806,9 @@ namespace Postgres_Manager
             View v = new View(conn,richTextBox2);
             v.ShowDialog();
             NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
-            treeView1.Nodes.Clear();
-            firstLoad();
-            show_components(builder.Host, builder.Port.ToString(), builder.UserName, System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
-            Triggers_show(conn);
-            Tables_show(conn);
-            view_show(conn);
-            Functions_show(conn);
-            seq_show(conn);
+            treeView1.Nodes[0].Nodes[0].Nodes.Clear();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName,
+                System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
         }
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
@@ -799,6 +826,34 @@ namespace Postgres_Manager
         {
             if (e.LinesAdded != 0)
                 UpdateLineNumbers(richTextBox1.LineFromPosition(e.Position));
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Database db = new Database(conn,richTextBox2);
+            db.ShowDialog();
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
+            treeView1.Nodes[0].Nodes[0].Nodes.Clear();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName,
+                System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
+        }
+
+        private void createIndexToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          CreateIndex ci = new CreateIndex(conn,richTextBox2);
+            ci.ShowDialog();
+        }
+
+        private void createTablespaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateTablespaces ct = new CreateTablespaces(conn,richTextBox2);
+            ct.ShowDialog();
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(conn.ConnectionString);
+            treeView1.Nodes[0].Nodes[0].Nodes.Clear();
+            show_components(builder.Host, builder.Port.ToString(), builder.UserName,
+                System.Text.Encoding.UTF8.GetString(builder.Password), conn.Database);
+
+
         }
     }
 }

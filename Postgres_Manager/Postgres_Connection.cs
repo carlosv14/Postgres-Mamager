@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -43,15 +44,23 @@ namespace Postgres_Manager
 
         public DataTable exec_Sql(string sql, NpgsqlConnection conn,RichTextBox t)
         {
+            DataTable dt = new DataTable();
             try
             {
-                DataSet ds = new DataSet();
-                DataTable dt = new DataTable();
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
-                ds.Reset();
-                da.Fill(ds);
-                if (ds.Tables.Count > 0)
-                    dt = ds.Tables[0];
+                
+               
+              
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
+                NpgsqlDataReader r;
+               
+                r = cmd.ExecuteReader();
+                if (r.HasRows)
+                {
+                    dt.Load(r);
+                    r.Close();
+                }
+                r.Close();
+               
                 int length = t.TextLength;
                 string msg = "Succesfull Query!";
                 t.AppendText(DateTime.Now + " "+msg + "\n");
@@ -61,7 +70,8 @@ namespace Postgres_Manager
                 t.SelectionLength = flength;
                 t.SelectionColor = Color.Green;
                 t.ScrollToCaret();
-                return dt;
+                
+                
             }
             catch (Exception ex)
             {
@@ -74,13 +84,58 @@ namespace Postgres_Manager
                 t.SelectionLength = flength;
                 t.SelectionColor = Color.Red;
                 t.ScrollToCaret();
+               
+            }
+
+
+            return dt;
+        }
+
+        public void special_query(TabControl tabControl, string sql, NpgsqlConnection con, RichTextBox t)
+        {
+            try
+            {
+                NpgsqlCommand cmd2 = new NpgsqlCommand();
+                cmd2.Connection = con;
+                cmd2.CommandType = System.Data.CommandType.Text;
+                cmd2.CommandText = sql;
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd2);
+
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                if(tabControl.TabCount>2)
+                for (int i = 2; i <tabControl.TabCount+1; i++)
+                {
+                    tabControl.TabPages.RemoveAt(i);
+                }
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    TabPage tab = new TabPage("Query" + (i + 1));
+                    tabControl.TabPages.Add(tab);
+                    tabControl.SelectedTab = tab;
+                    DataTable dt = new DataTable();
+                    dt = ds.Tables[i];
+                    DataGridView dg = new DataGridView();
+                    dg.DataSource = dt;
+                    dg.ReadOnly = true;
+                    tabControl.SelectedTab.Controls.Add(dg);
+                }
+            }
+            catch (Exception ex)
+            {
+                int length = t.TextLength;
+
+                t.AppendText(DateTime.Now + " " + ex.Message + "\n");
+
+                t.SelectionStart = length;
+                int flength = ex.Message.Length + DateTime.Now.ToString().Length + 1;
+                t.SelectionLength = flength;
+                t.SelectionColor = Color.Red;
+                t.ScrollToCaret();
 
             }
-            return new DataTable();
         }
 
 
-
-        
     }
 }

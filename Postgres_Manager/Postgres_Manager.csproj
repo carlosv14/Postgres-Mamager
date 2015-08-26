@@ -51,11 +51,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateIndex.Designer.cs">
+      <DependentUpon>CreateIndex.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateTable.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateTable.Designer.cs">
       <DependentUpon>CreateTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTablespaces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateTablespaces.Designer.cs">
+      <DependentUpon>CreateTablespaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Database.Designer.cs">
+      <DependentUpon>Database.cs</DependentUpon>
     </Compile>
     <Compile Include="EditTable.cs">
       <SubType>Form</SubType>
@@ -100,8 +118,17 @@
     <Compile Include="View.Designer.cs">
       <DependentUpon>View.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CreateIndex.resx">
+      <DependentUpon>CreateIndex.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateTable.resx">
       <DependentUpon>CreateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateTablespaces.resx">
+      <DependentUpon>CreateTablespaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Database.resx">
+      <DependentUpon>Database.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditTable.resx">
       <DependentUpon>EditTable.cs</DependentUpon>
@@ -177,6 +204,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indexs.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

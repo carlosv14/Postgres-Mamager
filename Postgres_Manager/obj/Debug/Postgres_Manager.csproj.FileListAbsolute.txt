@@ -48,3 +48,6 @@ F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\
 F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\Debug\Postgres_Manager.EditTable.resources
 F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\bin\Debug\ScintillaNET.dll
 F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\bin\Debug\ScintillaNET.xml
+F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\Debug\Postgres_Manager.Database.resources
+F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\Debug\Postgres_Manager.CreateIndex.resources
+F:\Documentos\Visual Studio 2013\Projects\Postgres_Manager\Postgres_Manager\obj\Debug\Postgres_Manager.CreateTablespaces.resources

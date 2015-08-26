@@ -34,8 +34,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new ScintillaNET.Scintilla();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -74,6 +74,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(365, 306);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // tabPage2
             // 
@@ -106,16 +107,6 @@
             this.tabPage3.Text = "DDL";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(160, 355);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(0, 3);
@@ -126,11 +117,21 @@
             this.richTextBox1.Delete += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox1_Delete);
             this.richTextBox1.Insert += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.richTextBox1_Insert);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(160, 355);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Aceptar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // EditTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 390);
+            this.ClientSize = new System.Drawing.Size(382, 390);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Name = "EditTable";
